@@ -1,0 +1,35 @@
+---
+# vars file for webserver-role
+- hosts: webservers
+  vars:
+    bacnet_port: 47808
+    niagara_plat: 5011
+    niagara_station: 4911
+    niagara_https: 8443
+    wizard_p1: 1931
+    wizard_p2: 1932
+    interface_name: eno5
+    interface_type: vlan
+    interface_state: present
+    
+    # Management VLAN config
+    mgmt_vlan_id: 253
+    mgmt_vlan_ip: 10.1.253.3
+    mgmt_vlan_gw: 10.1.253.1
+    mgmt_vlan_sn: 24
+    mgmt_vlan_name: 'mgmt'
+
+    # First floor VLAN config
+    flr1_vlan_id: 101
+    flr1_vlan_ip: 10.1.101.3
+    flr1_vlan_gw: 10.1.253.1
+    flr1_vlan_sn: 24
+    flr1_vlan_name: 'Floor_1'
+
+    # Second floor VLAN config
+    flr2_vlan_id: 2
+    flr2_vlan_ip: 10.1.2.3
+    flr2_vlan_gw: 10.1.2.1
+    flr2_vlan_sn: 24
+    flr2_vlan_name: 'Floor_2'
+

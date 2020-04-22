@@ -1,0 +1,38 @@
+- name: Set firewall rules for UFW (debian based systems)
+  hosts: owy_bms 
+  vars:
+    - eth0: enp2s0
+  tasks:
+    - name: Enable and deny all 
+      state: enabled
+      policy: deny
+    - name: Allow DNS
+      ufw:
+        rule: deny
+        direction: in
+        proto: tcp
+        port: '53'
+    - name: Allow DHCP and OpenVPN
+      ufw:
+        rule: allow
+        port: '67'
+        proto: udp
+    - name: Allow DHCP and OpenVPN
+      ufw:
+        rule: allow
+        port: '68'
+        proto: udp
+    - name: Allow DHCP and OpenVPN
+      ufw:
+        rule: allow
+        port: '1195'
+        proto: udp
+    - name: 
+      ufw:
+        rule: allow
+        interface: tun0
+    - name: 
+      ufw:
+        rule: allow
+        interface: '{{eth0}}'
+        from: 10.0.0.1/24

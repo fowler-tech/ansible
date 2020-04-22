@@ -1,0 +1,24 @@
+---
+- name: Create VLAN interfaces for webserver
+  hosts: owy_bms 
+  tasks:
+    - name: Create vlan for 1st floor
+      nmcli: 
+        type: vlan
+        conn_name: 'Floor_1'
+        ifname: Floor_1
+        vlandev: eno4
+        vlanid: 101
+        gw4: 10.1.101.1
+        ip4: 10.1.101.3/24
+        state: present
+    - name: Create mgmt vlan
+      nmcli:
+        type: vlan
+        conn_name: 'MGMT'
+        ifname: MGMT
+        vlandev: eno4
+        vlanid: 253
+        gw4: 10.1.253.1
+        ip4: 10.1.253.3/24
+        state: present
