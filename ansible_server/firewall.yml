@@ -1,5 +1,5 @@
 - name: Set firewall rules
-  hosts: owy_bms 
+  hosts: simplotplantsciences 
   vars:
     - bacnet: 47808
     - ssl_plat: 5011
@@ -11,7 +11,7 @@
     - radius_out: 1813
     - https_re: 8443
     - snmp: 161
-    - snmp_trap: 162  
+    - snmp_trap: 162
   tasks:
     - name: Set bacnet udp port 
       firewalld:

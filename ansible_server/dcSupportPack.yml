@@ -1,5 +1,5 @@
 - name: Copy needed niagara directories and files
-  hosts: owy_bms
+  hosts: simplotplantsciences
   vars:
     - niagara_version: 'Niagara4.8'
       dcf: 'Distech Controls Files'
